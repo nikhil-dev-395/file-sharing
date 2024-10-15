@@ -1,0 +1,36 @@
+<!-- auth/login.ejs -->
+
+<%- include("../partials/header.ejs") %>
+
+<section class="w-full h-[calc(100vh-40px)] mx-auto">
+  <div class="py-10">
+    <h2 class="text-xl text-blue-500 px-40">welcome back </h2>
+    <h3 class="text-xl text-red-500 px-40">Login</h3>
+    <form
+      class="w-1/2 bg-blue-200 py-10 rounded-2xl text-xl flex flex-col gap-y-6 mx-auto"
+    >
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="enter email"
+        class="rounded-md text-sm text-black py-4 w-[80%] px-6 outline-none mx-auto"
+      />
+      <input
+        type="password"
+        name="password"
+        id="password"
+        placeholder="enter password"
+        class="rounded-md mx-auto text-sm text-black py-4 w-[80%] px-6 outline-none"
+      />
+
+      <button
+        type="submit"
+        class="w-32 bg-slate-50 rounded-lg text-md text-black px-2 ml-16 py-3 hover:bg-blue-500"
+      >
+        login
+      </button>
+    </form>
+  </div>
+</section>
+<%- include("../partials/footer.ejs")%>
