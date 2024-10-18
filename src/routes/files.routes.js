@@ -4,4 +4,4 @@ router.get("/", (req, res) => {
   return res.render("index");
 });
 
-module.exports = router;
+module.exports = { fileRouter: router };

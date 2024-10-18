@@ -2,17 +2,39 @@
 
 <%- include("partials/header.ejs") %>
 
-    <section class="w-full h-screen ">
-        <div class=" text-slate-50 px-10 py-10 w-1/2 mx-auto rounded-2xl  ">
-            <div class="rounded-3xl border-4 border-dashed border-blue-500 px-10 py-10 text-black">
-                <img src="/icons/drop.svg " class="w-60  rounded-xl   mx-auto" alt="" />
+<section class="w-full h-screen">
+  <div class="text-slate-50 px-10 py-10 w-1/2 mx-auto rounded-2xl">
+    <div
+      class="rounded-3xl border-4 border-dashed border-blue-500 px-10 py-10 text-black"
+    >
+      <input
+        type="file"
+        name="file"
+        id="file-sharing"
+        class=""
+        accept=".jpg , .png , .pdf , .ppt , .docx "
+      />
+      <img
+        src="/icons/drop.svg "
+        class="w-60 rounded-xl mx-auto"
+        alt="drop image"
+        id="dropImg"
+      />
 
-                <p class="text-xl text-center pt-10 text-slate-50 ">drag and drop an image or <span
-                        class="text-blue-500 font-bold">browse</span> </p>
-                <p class="text-sm text-center text-slate-50">file must jpd, png, svg, pdf upto 100mb </p>
-            </div>
-        </div>
+      <!-- here our img will be displayed -->
+      <div id="show" class="w-full mx-auto h-52 bg-cover hidden">
+        <!-- here our img info will be displayed -->
+        <ul id="fileInfo" class="flex gap-4 text-white"></ul>
+      </div>
 
-
-    </section>
-    <%- include("partials/footer.ejs")%>
+      <p class="text-xl text-center pt-10 text-slate-50">
+        drag and drop an image or
+        <span class="text-blue-500 font-bold">browse</span>
+      </p>
+      <p class="text-sm text-center text-slate-50">
+        file must jpg, png, svg, pdf upto 100mb
+      </p>
+    </div>
+  </div>
+</section>
+<%- include("partials/footer.ejs")%>

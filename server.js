@@ -9,7 +9,9 @@ const port = process.env.port || 3000;
 const path = require("path");
 // FILES
 const connect = require("./src/db/connect.db.js");
-
+const { fileRouter } = require("./src/routes/files.routes.js");
+const { userRouter } = require("./src/routes/user.routes.js");
+const { webRouter } = require("./src/routes/web.routes.js");
 // view ejs engine
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
@@ -17,14 +19,13 @@ app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 // ROUTES
-// app.use("/api/files", require("./src/routes/files.routes"));
-// app.use("/files" , require())
-// app.use("/api/user/v1" , require())
+/*following route helps to routing all ejs pages
+- web route */
+app.use("/", webRouter);
+app.use("/api/v1/files", fileRouter);
+app.use("/api/v1/user", userRouter);
 
-// web route
-//following route helps to routing all ejs pages
-app.use("/", require("./src/routes/web.routes"));
-
+// node js server is running from here ...
 const startServer = async () => {
   try {
     await connect();

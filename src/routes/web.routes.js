@@ -3,9 +3,8 @@ const {
   github_profile_url,
   linkedIn_profile_url,
 } = require("../constants/constants.js");
-// const github_url = process.env.GITHUB_PROFILE_URI;
-// const linkedIn_url = process.env.LINKEDIN_PROFILE_URI;
 
+// with this middleware we can send github & linedin links
 router.use((req, res, next) => {
   res.locals.github_profile_url = github_profile_url;
   res.locals.linkedIn_profile_url = linkedIn_profile_url;
@@ -36,4 +35,4 @@ router.get("*", (req, res) => {
   return res.render("404/not-found");
 });
 
-module.exports = router;
+module.exports = { webRouter: router };
