@@ -1,3 +1,5 @@
+/* server.js */
+
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
@@ -7,8 +9,8 @@ const port = process.env.port || 3000;
 const path = require("path");
 // FILES
 const connect = require("./src/db/connect.db.js");
+
 // view ejs engine
-// app.use(express.static("public"));
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -20,7 +22,7 @@ app.use(bodyParser.json());
 // app.use("/api/user/v1" , require())
 
 // web route
-//this route helps to routing all ejs pages
+//following route helps to routing all ejs pages
 app.use("/", require("./src/routes/web.routes"));
 
 const startServer = async () => {

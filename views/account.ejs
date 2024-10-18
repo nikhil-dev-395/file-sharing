@@ -1,20 +1,50 @@
 <%- include("partials/header.ejs") %>
 
-    <section class="flex  w-full h-screen mx-auto bg-gray-100">
-        <div class="w-3/4 bg-red-400 py-16 mx-auto rounded-md shadow-lg">
-            <div id="user" class="flex flex-row gap-4 p-4 border-b-2 border-yellow-300">
-                <h2 class="text-yellow-300 text-lg font-bold">Your Name</h2>
-                <h2 class="text-green-300 text-lg font-bold">Your Email</h2>
-            </div>
+  <section class="flex w-full h-screen mx-auto">
 
-            <!-- Your links -->
-            <h3>links</h3>
-            <ul class="mt-6">
-                <li class="text-blue-500 underline hover:text-blue-700">
-                    <a href="#" target="_blank" rel="noopener noreferrer">Watch Heropanti</a>
-                </li>
-            </ul>
+    <div class="w-3/4 py-16 mx-auto">
+      <div id="user" class="flex flex-row gap-4 p-4 border-b-2 border-yellow-300 justify-between">
+        <div class="">
+          <h2 class="text-yellow-300 text-lg font-bold">nikhil wankhade</h2>
+          <h2 class="text-green-300 text-lg font-bold">Email12@gmail.com</h2>
+
         </div>
-    </section>
+        <h2 class="text-green-300 text-lg font-bold">total links : 1</h2>
+      </div>
 
-    <%- include("partials/footer.ejs") %>
+      <!-- Your links -->
+      <h3 class="text-xl text-purple-300 pt-11">links</h3>
+      <ul class="mt-6">
+        <!-- add here map function and make it repeat multiple time at how many links are available by user  -->
+        <li class="py-3">
+          <div class="flex justify-between">
+            <span class="text-yellow-500 mr-10">1 .</span>
+            <span class="text-red-500">
+              <%= fileName %>
+            </span>
+            <span class="text-green-400">
+              <%= fileSize %> mb.
+            </span>
+            <a href="<%= fileDownloadUrl %>" target="_blank" rel="noopener noreferrer"
+              class="text-blue-500 underline hover:text-blue-700">
+              <%= fileDownloadUrl.substring(0,40)+"...." %>
+            </a>
+            <!-- icons -->
+            <div class="flex gap-6">
+              <!-- delete -->
+              <img src="/icons/delete.svg" class="w-5 h-7 bg-white rounded-lg hover:cursor-pointer hover:bg-red-400"
+                alt="delete button" id="deleteBtn" title="delete">
+              <!-- share -->
+              <img src="/icons/share.svg" class="w-5 h-7 bg-white rounded-lg hover:cursor-pointer hover:bg-green-300"
+                alt="share button" id="shareBtn" title="share">
+              <!-- update -->
+              <img src="/icons/update.svg" class="w-5 h-7 bg-white rounded-lg hover:cursor-pointer hover:bg-purple-300"
+                alt="update button" id="updateBtn" title="update">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <%- include("partials/footer.ejs") %>
