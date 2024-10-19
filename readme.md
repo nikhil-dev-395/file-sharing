@@ -24,3 +24,7 @@ yarn start
 PORT = your port | 3000
 MONGO_URI = your mongodb url
 ```
+
+::: NOTE :
+DOCX CREATING A ISSUE FOR PREVIEWING IT .SOLVE THIS FIRST
+:::
