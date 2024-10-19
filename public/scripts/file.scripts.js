@@ -1,11 +1,15 @@
 // file.scripts.js
 console.log("file.js");
 
+// impoting module
+import { color } from "../helpers/helpers.helpers.js";
+
 const files_sharing = document.getElementById("file-sharing");
 const show = document.getElementById("show");
 const fileInfo = document.getElementById("fileInfo");
 const dropImg = document.getElementById("dropImg");
-console.log(files_sharing);
+const select_file = document.getElementById("select-file");
+// console.log(files_sharing);
 
 files_sharing.addEventListener("change", (e) => {
   show.style.display = "block";
@@ -38,34 +42,63 @@ files_sharing.addEventListener("change", (e) => {
       embed.style.width = "280px";
       embed.style.height = "300px";
       embed.style.margin = "auto";
+
       show.append(embed);
     }
 
     // images handling from here ...
-    if (file.type === "image/png" || file.type === "image/jpg") {
+    if (
+      file.type === "image/png" ||
+      file.type === "image/jpg" ||
+      file.type === "image/svg+xml"
+    ) {
       img.src = url;
       img.alt = file.name;
-      img.style.width = "200px";
+      img.style.width = "280px";
       img.style.height = "300px";
       img.style.margin = "auto";
       img.style.borderRadius = "20px";
+      img.style.backgroundSize = "cover";
+
       show.append(img);
+
+      // for .svg only
+
+      if (file.type === "image/svg+xml") {
+        img.style.backgroundColor = color.docxBgColor;
+      }
     }
 
-
     // NOTE : DOCX CREATING A ISSUE FOR PREVIEWING IT .SOLVE THIS FIRST
-    // docx handling from here ..
+    // .docx handling from here ..
     if (
-      file.type ==
-      "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+      file &&
+      file.type ===
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
     ) {
-      iframe.src = `https://docs.google.com/gview?url=${encodeURIComponent(
-        url
-      )}&embedded=true`;
-      iframe.style.width = "280px";
-      iframe.style.height = "300px";
-      iframe.style.margin = "auto";
-      show.append(iframe);
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+        const arrayBuffer = event.target.result;
+
+        mammoth
+          .convertToHtml({ arrayBuffer: arrayBuffer })
+          .then(function (result) {
+            const previewContainer =
+              document.getElementById("preview-container");
+            previewContainer.innerHTML = result.value;
+            previewContainer.style.display = "block";
+            previewContainer.style.width = "280px";
+            previewContainer.style.height = "300px";
+            previewContainer.style.backgroundColor = color.docxBgColor;
+          })
+          .catch(function (err) {
+            console.error(err);
+            alert("Failed to convert the document.");
+          });
+      };
+
+      reader.readAsArrayBuffer(file);
     }
     // making drop img hidden after choosing the file
     dropImg.style.display = "none";

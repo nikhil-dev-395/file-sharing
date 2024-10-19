@@ -24,6 +24,9 @@ router.get("/register", (req, res) => {
 });
 
 router.get("/account", (req, res) => {
+  /*
+  here i only add this values manually to show some data in ejs but add here mongodb db connection quickly to directly fetch the data form db
+  */
   return res.render("account", {
     fileName: "hero",
     fileSize: 200,

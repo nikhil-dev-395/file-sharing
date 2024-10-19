@@ -1,9 +1,12 @@
-<!-- index.ejs -->
+<!-- views/index.ejs -->
 
 <%- include("partials/header.ejs") %>
 
 <section class="w-full h-screen">
-  <div class="text-slate-50 px-10 py-10 w-1/2 mx-auto rounded-2xl">
+  <div
+    class="text-slate-50 px-10 py-10 w-1/2 mx-auto rounded-2xl"
+    id="select-file"
+  >
     <div
       class="rounded-3xl border-4 border-dashed border-blue-500 px-10 py-10 text-black"
     >
@@ -12,8 +15,9 @@
         name="file"
         id="file-sharing"
         class=""
-        accept=".jpg , .png , .pdf , .ppt , .docx "
+        accept=".jpg , .png , .pdf , .ppt , .docx , .svg "
       />
+
       <img
         src="/icons/drop.svg "
         class="w-60 rounded-xl mx-auto"
@@ -21,10 +25,20 @@
         id="dropImg"
       />
 
-      <!-- here our img will be displayed -->
-      <div id="show" class="w-full mx-auto h-52 bg-cover hidden">
-        <!-- here our img info will be displayed -->
+      <!-- here our file will be displayed -->
+      <div
+        id="show"
+        class="w-full mx-auto h-52 max-h-72 max-w-52 bg-cover hidden"
+      >
+        <!-- here our file info will be displayed -->
         <ul id="fileInfo" class="flex gap-4 text-white"></ul>
+
+        <!-- here our .docx will be displayed -->
+        <div
+          id="preview-container"
+          class="w-[300px] max-h-[300px] border border-gray-300 p-2 mx-auto overflow-auto break-words mt-2 hidden"
+          style="border: 1px solid #ccc; padding: 10px; margin-top: 10px"
+        ></div>
       </div>
 
       <p class="text-xl text-center pt-10 text-slate-50">
