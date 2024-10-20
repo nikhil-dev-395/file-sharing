@@ -14,33 +14,34 @@ const progressBar = document.getElementById("myBar");
 const myProgressBar = document.getElementById("myProgressBar");
 const progressValue = document.getElementById("value");
 const nextBtn = document.getElementById("nextBtn");
-// console.log(files_sharing);
+const cancelBtn = document.getElementById("cancelBtn");
 
 files_sharing.addEventListener("change", (e) => {
   nextBtn.style.display = "block";
+  cancelBtn.style.display = "block";
   show.style.display = "block";
   show.style.width = "280px";
   show.style.height = "300px";
   show.style.backgroundColor = color.docxBgColor;
-  // following code is for progress bar after uploading a file
-  // Reset progress bar
+  /* following code is for progress bar after uploading a file
+   Reset progress bar*/
   myProgressBar.style.display = "block";
   let width = 10;
   progressBar.style.width = width + "%";
   progressValue.innerHTML = width + "%";
 
-  // Simulating file upload progress
+  /*Simulating file upload progress*/
   const intervalId = setInterval(() => {
     if (width >= 100) {
       clearInterval(intervalId);
     } else {
       width++;
       progressBar.style.width = width + "%";
-      progressValue.innerHTML = width + "%"; // Update text
+      progressValue.innerHTML = width + "%";
     }
   }, 50);
 
-  //   upto here is the code of progress bar
+  /*   upto here is the code of progress bar*/
 
   displayPreInfo.style.display = "none";
   show.style.display = "block";
@@ -51,6 +52,20 @@ files_sharing.addEventListener("change", (e) => {
   //   console.log(url);
 
   if (file) {
+    // Check if the file is an image
+    if (file.type.startsWith("image/")) {
+      // show.style.backgroundImage = `url(${url})`;
+      show.style.backgroundSize = "cover";
+      show.style.backgroundPosition = "center";
+      show.style.backgroundRepeat = "no-repeat";
+    } else {
+      // For non-image files, you can set a default placeholder background
+
+      show.style.backgroundSize = "cover";
+      show.style.backgroundPosition = "center";
+      show.style.backgroundRepeat = "no-repeat";
+    }
+
     const filesize = file.size / 1_000_000 + " mb";
     // console.log("file is occurred", file, file.type, file.name, filesize);
     const img = document.createElement("img");
@@ -58,15 +73,12 @@ files_sharing.addEventListener("change", (e) => {
     // embed is going to show the .pdf
     const embed = document.createElement("embed");
 
-    // iframe is going to show the .docx (google docs)
-    // const iframe = document.createElement("iframe");
-
-    // li elemets for showing the metadata of files
+    /* li elemets for showing the metadata of files*/
     const li1 = document.createElement("li");
     const li2 = document.createElement("li");
     const li3 = document.createElement("li");
 
-    // PDF File Handling
+    /* PDF File Handling*/
     if (file.type === "application/pdf") {
       embed.src = url;
       embed.type = "application/pdf";
@@ -77,7 +89,7 @@ files_sharing.addEventListener("change", (e) => {
       show.append(embed);
     }
 
-    // images handling from here ...
+    /* images handling from here ...*/
     if (
       file.type === "image/png" ||
       file.type === "image/jpg" ||
@@ -93,14 +105,14 @@ files_sharing.addEventListener("change", (e) => {
 
       show.append(img);
 
-      // for .svg only
+      /* for .svg only*/
 
       if (file.type === "image/svg+xml") {
         img.style.backgroundColor = color.docxBgColor;
       }
     }
 
-    // .docx handling from here ..
+    /*.docx handling from here ..*/
     if (
       file &&
       file.type ===
@@ -124,14 +136,30 @@ files_sharing.addEventListener("change", (e) => {
 
       reader.readAsArrayBuffer(file);
     }
-    // making drop img hidden after choosing the file
+    /*making drop img hidden after choosing the file */
     dropImg.style.display = "none";
     files_sharing.style.display = "none";
 
-    // appending the elements in `show` named `id` div
+    /* appending the elements in `show` named `id` div*/
     li1.innerHTML = "name : " + file.name;
     li2.innerHTML = "size : " + filesize;
-    li3.innerHTML = "file type : " + file.type;
+    /* (ternary conditionals) here i added file type conditions so we can text words - i mentioned only lengthy types */
+    li3.innerHTML =
+      "file type : " +
+      (file.type === "application/pdf"
+        ? "pdf"
+        : file.type ===
+          "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+        ? "docx"
+        : file.type === "image/png"
+        ? "png"
+        : file.type === "image/jpg"
+        ? "jpg"
+        : file.type === "image/jpeg"
+        ? "jpeg"
+        : file.type === "image/svg+xml"
+        ? "svg"
+        : file.type);
 
     fileInfo.append(li1);
     fileInfo.append(li2);
