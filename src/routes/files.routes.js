@@ -1,7 +1,9 @@
 const router = require("express").Router();
 
-router.get("/", (req, res) => {
-  return res.render("index");
+router.get("/ss", (req, res) => {
+  return res.render("index", {
+    title: "wolf share",
+  });
 });
 
 module.exports = { fileRouter: router };

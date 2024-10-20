@@ -1,28 +1,22 @@
-# file sharing app
+# File Sharing App
 
-`tech stack -  ejs, tailwind css, express js, node js, mongodb`
+**Tech Stack**: EJS, Tailwind CSS, Express.js, Node.js, MongoDB
 
-following command for running tailwind css and node js app at same time
+## Running the Application
 
-```
+### Development Command
+
+To run both the Tailwind CSS and Node.js server simultaneously, use:
+
+```bash
 yarn dev
-
 ```
 
-and this following command is used for running node js server
-
-```
-yarn start
-
-```
-
-`"dev": "concurrently "nodemon server.js" "npx tailwindcss -i ./public/stylesheet/style.css -o ./public/stylesheet/tailwind.css --watch"",`
-
-```
 # .env file
-
+```
 PORT = your port | 3000
 MONGO_URI = your mongodb url
 ```
 
-
+# icon sourse
+for svg icons i used [hugeicons](https://hugeicons.com/) this website
