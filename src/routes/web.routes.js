@@ -2,12 +2,14 @@ const router = require("express").Router();
 const {
   github_profile_url,
   linkedIn_profile_url,
+  twitter_profile_url,
 } = require("../constants/constants.js");
 
 // with this middleware we can send github & linedin links
 router.use((req, res, next) => {
   res.locals.github_profile_url = github_profile_url;
   res.locals.linkedIn_profile_url = linkedIn_profile_url;
+  res.locals.twitter_profile_url = twitter_profile_url;
   next();
 });
 
