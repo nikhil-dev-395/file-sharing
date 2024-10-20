@@ -1,62 +1,77 @@
-<!-- views/index.ejs -->
-
 <%- include("partials/header.ejs") %>
 
-<section class="w-full h-screen">
-  <div
-    class="text-slate-50 px-10 py-10 w-1/2 mx-auto rounded-2xl"
-    id="select-file"
-  >
+<section class="w-full h-auto flex justify-center py-16">
+  <div class="rounded-3xl max-w-lg w-full h-auto">
     <div
-      class="rounded-3xl border-4 border-dashed border-blue-500 px-10 py-10 text-black"
+      class="border-4 border-dashed border-blue-500 rounded-3xl p-8 relative text-center"
     >
+      <!-- File selection -->
       <input
         type="file"
         name="file"
         id="file-sharing"
-        class=""
-        accept=".jpg , .png , .pdf , .ppt , .docx , .svg "
+        class="opacity-0 absolute inset-0 cursor-pointer z-50"
+        accept=".jpg , .png , .pdf , .ppt , .docx , .svg"
       />
 
+      <!-- Drop Image or File Selection UI -->
       <img
-        src="/icons/drop.svg "
-        class="w-60 rounded-xl mx-auto"
+        src="/icons/drop.svg"
+        class="w-36 mx-auto mb-6 opacity-70"
         alt="drop image"
         id="dropImg"
       />
 
-      <!-- here our file will be displayed -->
+      <!-- Pre-upload instructions -->
+      <div id="displayPreInfo">
+        <p class="text-lg font-semibold text-gray-600 mb-2">
+          Drag & drop an image or
+        </p>
+        <p
+          class="text-blue-600 font-bold text-xl cursor-pointer hover:text-blue-800 transition-all"
+        >
+          Browse Files
+        </p>
+        <p class="text-xs text-gray-500 mt-3">
+          Supported formats: .jpg, .png, .svg, .pdf, .docx (up to 100MB)
+        </p>
+      </div>
+
+      <!-- Progress bar -->
+      <div
+        id="myProgressBar"
+        class="hidden mt-8 w-full bg-gray-300 rounded-full h-4"
+      >
+        <div
+          id="myBar"
+          class="bg-gradient-to-r from-green-400 to-green-600 h-full rounded-full flex items-center justify-center transition-all duration-300 ease-in-out"
+          style="width: 10%"
+        >
+          <span id="value" class="text-xs text-white font-semibold">10%</span>
+        </div>
+      </div>
+
+      <!-- Display selected file content -->
       <div
         id="show"
-        class="w-full mx-auto h-52 max-h-72 max-w-52 bg-cover hidden"
+        class="mt-6 w-full max-w-sm h-52 max-h-52 border border-gray-200 rounded-lg overflow-auto shadow-md hidden"
+      ></div>
+
+      <!-- File info section -->
+      <ul
+        id="fileInfo"
+        class="mt-6 flex flex-col items-start gap-2 text-gray-700 text-sm"
+      ></ul>
+
+      <!-- Next button -->
+      <button
+        id="nextBtn"
+        class="bg-blue-700 text-white py-2 px-4 mt-6 rounded-md shadow-md hidden hover:bg-blue-800 transition-all"
       >
-        <!-- here our file info will be displayed -->
-        <ul id="fileInfo" class="flex gap-4 text-white"></ul>
-
-        <!-- here our .docx will be displayed -->
-        <div
-          id="preview-container"
-          class="w-[300px] max-h-[300px] border border-gray-300 p-2 mx-auto overflow-auto break-words mt-2 hidden"
-        ></div>
-      </div>
-      <!-- hide this pre info after selecting file and show the progress bar ...  -->
-      <div id="displayPreInfo">
-        <p class="text-xl text-center pt-10 text-slate-50">
-          drag and drop an image or
-          <span class="text-blue-500 font-bold">browse</span>
-        </p>
-        <p class="text-sm text-center text-slate-50">
-          file must jpg, png, svg, pdf upto 100mb
-        </p>
-      </div>
-
-  <div id="myProgressBar" class="bg-gray-600 w-[80%] mx-auto h-8 rounded-lg">
-    <div id="myBar" class="bg-green-400 h-full w-1 flex items-center justify-center rounded-lg">
-        <span id="value" class="text-white">10%</span>
-    </div>
-</div>
-
+        Next
+      </button>
     </div>
   </div>
 </section>
-<%- include("partials/footer.ejs")%>
+
+<%- include("partials/footer.ejs") %>

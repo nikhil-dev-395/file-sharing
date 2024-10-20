@@ -11,12 +11,20 @@ const dropImg = document.getElementById("dropImg");
 const select_file = document.getElementById("select-file");
 const displayPreInfo = document.getElementById("displayPreInfo");
 const progressBar = document.getElementById("myBar");
+const myProgressBar = document.getElementById("myProgressBar");
 const progressValue = document.getElementById("value");
+const nextBtn = document.getElementById("nextBtn");
 // console.log(files_sharing);
 
 files_sharing.addEventListener("change", (e) => {
+  nextBtn.style.display = "block";
+  show.style.display = "block";
+  show.style.width = "280px";
+  show.style.height = "300px";
+  show.style.backgroundColor = color.docxBgColor;
   // following code is for progress bar after uploading a file
   // Reset progress bar
+  myProgressBar.style.display = "block";
   let width = 10;
   progressBar.style.width = width + "%";
   progressValue.innerHTML = width + "%";
@@ -106,13 +114,7 @@ files_sharing.addEventListener("change", (e) => {
         mammoth
           .convertToHtml({ arrayBuffer: arrayBuffer })
           .then(function (result) {
-            const previewContainer =
-              document.getElementById("preview-container");
-            previewContainer.innerHTML = result.value;
-            previewContainer.style.display = "block";
-            previewContainer.style.width = "280px";
-            previewContainer.style.height = "300px";
-            previewContainer.style.backgroundColor = color.docxBgColor;
+            show.innerHTML = result.value;
           })
           .catch(function (err) {
             console.error(err);
@@ -127,9 +129,9 @@ files_sharing.addEventListener("change", (e) => {
     files_sharing.style.display = "none";
 
     // appending the elements in `show` named `id` div
-    li1.innerHTML = file.name;
-    li2.innerHTML = filesize;
-    li3.innerHTML = file.type;
+    li1.innerHTML = "name : " + file.name;
+    li2.innerHTML = "size : " + filesize;
+    li3.innerHTML = "file type : " + file.type;
 
     fileInfo.append(li1);
     fileInfo.append(li2);
