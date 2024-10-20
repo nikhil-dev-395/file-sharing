@@ -1,0 +1,88 @@
+<!-- view/helpers/send.ejs -->
+
+<%- include("../partials/header.ejs") %>
+<section class="w-full h-auto flex justify-center py-16">
+  <div class="rounded-3xl max-w-lg w-full h-auto p-8">
+    <div
+      class="border-4 border-dashed border-blue-500 rounded-3xl p-8 relative text-center"
+    >
+      <form action="" class="w-[95%] h-auto mx-auto">
+        <div
+          class="flex items-center border rounded-xl text-slate-700 w-full mt-2 bg-white shadow-sm"
+        >
+          <input
+            type="email"
+            name="senderEmail"
+            id="senderEmail"
+            placeholder="Sender Email"
+            class="flex-1 py-2 px-4 rounded-l-xl outline-none"
+            required
+          />
+
+          <img src="/icons/user.svg" alt="Clear" class="w-4 h-4 mx-3" />
+        </div>
+
+        <div
+          class="flex items-center border rounded-xl text-slate-700 w-full mt-2 bg-white shadow-sm"
+        >
+          <input
+            type="email"
+            name="receiverEmail"
+            id="receiverEmail"
+            placeholder="receiver email"
+            class="flex-1 py-2 px-4 rounded-l-xl outline-none"
+            required
+          />
+
+          <img
+            src="/icons/receiveEmail.svg"
+            alt="receiver"
+            class="w-4 h-4 mx-3"
+          />
+        </div>
+
+        <div
+          class="flex items-center border rounded-xl text-slate-700 w-full mt-2 bg-white shadow-sm"
+        >
+          <input
+            type="text"
+            name="titleForEmail"
+            id="titleForEmail"
+            placeholder="title"
+            class="flex-1 py-2 px-4 rounded-l-xl outline-none"
+          />
+
+          <img src="/icons/title.svg" alt="receiver" class="w-4 h-4 mx-3" />
+        </div>
+
+        <div
+          class="flex relative items-center border rounded-xl text-slate-700 w-full mt-2 bg-white shadow-sm"
+        >
+          <textarea
+            name="EmailText"
+            id="EmailText"
+            cols="30"
+            rows="10"
+            placeholder="write your thought"
+            class="flex-1 rounded-xl text-slate-700 outline-none w-full py-3 px-4 mt-2"
+          ></textarea>
+
+          <img
+            src="/icons/paragraph.svg"
+            alt="receiver"
+            class="absolute top-3 right-3 w-4 h-4"
+          />
+        </div>
+        <div class="flex justify-start mt-10">
+          <button
+            class="bg-blue-600 text-white rounded-lg py-2 px-3 flex items-center transition duration-200 ease-in-out hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <span class="mr-2">Send File</span>
+            <img src="/icons/send.svg" alt="Send" class="w-5 h-5" />
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<%- include("../partials/footer.ejs") %>
