@@ -37,17 +37,25 @@
         <div
           id="preview-container"
           class="w-[300px] max-h-[300px] border border-gray-300 p-2 mx-auto overflow-auto break-words mt-2 hidden"
-          style="border: 1px solid #ccc; padding: 10px; margin-top: 10px"
         ></div>
       </div>
+      <!-- hide this pre info after selecting file and show the progress bar ...  -->
+      <div id="displayPreInfo">
+        <p class="text-xl text-center pt-10 text-slate-50">
+          drag and drop an image or
+          <span class="text-blue-500 font-bold">browse</span>
+        </p>
+        <p class="text-sm text-center text-slate-50">
+          file must jpg, png, svg, pdf upto 100mb
+        </p>
+      </div>
 
-      <p class="text-xl text-center pt-10 text-slate-50">
-        drag and drop an image or
-        <span class="text-blue-500 font-bold">browse</span>
-      </p>
-      <p class="text-sm text-center text-slate-50">
-        file must jpg, png, svg, pdf upto 100mb
-      </p>
+  <div id="myProgressBar" class="bg-gray-600 w-[80%] mx-auto h-8 rounded-lg">
+    <div id="myBar" class="bg-green-400 h-full w-1 flex items-center justify-center rounded-lg">
+        <span id="value" class="text-white">10%</span>
+    </div>
+</div>
+
     </div>
   </div>
 </section>

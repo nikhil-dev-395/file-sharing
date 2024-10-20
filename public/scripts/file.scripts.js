@@ -1,4 +1,4 @@
-// file.scripts.js
+// file.scripts.js - module.js
 console.log("file.js");
 
 // impoting module
@@ -9,9 +9,32 @@ const show = document.getElementById("show");
 const fileInfo = document.getElementById("fileInfo");
 const dropImg = document.getElementById("dropImg");
 const select_file = document.getElementById("select-file");
+const displayPreInfo = document.getElementById("displayPreInfo");
+const progressBar = document.getElementById("myBar");
+const progressValue = document.getElementById("value");
 // console.log(files_sharing);
 
 files_sharing.addEventListener("change", (e) => {
+  // following code is for progress bar after uploading a file
+  // Reset progress bar
+  let width = 10;
+  progressBar.style.width = width + "%";
+  progressValue.innerHTML = width + "%";
+
+  // Simulating file upload progress
+  const intervalId = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(intervalId);
+    } else {
+      width++;
+      progressBar.style.width = width + "%";
+      progressValue.innerHTML = width + "%"; // Update text
+    }
+  }, 50);
+
+  //   upto here is the code of progress bar
+
+  displayPreInfo.style.display = "none";
   show.style.display = "block";
   const file = e.target.files[0];
   console.log(file);
@@ -28,7 +51,7 @@ files_sharing.addEventListener("change", (e) => {
     const embed = document.createElement("embed");
 
     // iframe is going to show the .docx (google docs)
-    const iframe = document.createElement("iframe");
+    // const iframe = document.createElement("iframe");
 
     // li elemets for showing the metadata of files
     const li1 = document.createElement("li");
@@ -69,7 +92,6 @@ files_sharing.addEventListener("change", (e) => {
       }
     }
 
-    // NOTE : DOCX CREATING A ISSUE FOR PREVIEWING IT .SOLVE THIS FIRST
     // .docx handling from here ..
     if (
       file &&
@@ -104,7 +126,7 @@ files_sharing.addEventListener("change", (e) => {
     dropImg.style.display = "none";
     files_sharing.style.display = "none";
 
-    // appending the elements in `show` name id div
+    // appending the elements in `show` named `id` div
     li1.innerHTML = file.name;
     li2.innerHTML = filesize;
     li3.innerHTML = file.type;
