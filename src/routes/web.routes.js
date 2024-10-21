@@ -14,8 +14,11 @@ router.use((req, res, next) => {
 });
 
 router.get("/", (req, res) => {
+  /* add here token for displaying the logout btn */
+
   return res.render("index", {
     title: "wolf share",
+
   });
 });
 
@@ -46,6 +49,12 @@ router.get("/account", (req, res) => {
     fileName: "hero",
     fileSize: 200,
     fileDownloadUrl: "https://code.visualstudio.com/docs/editor/editingevolved",
+  });
+});
+
+router.get("/download", (req, res) => {
+  return res.render("helpers/download", {
+    title: "download",
   });
 });
 

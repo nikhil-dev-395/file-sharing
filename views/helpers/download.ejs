@@ -1,0 +1,85 @@
+<!-- views/helpers/download.ejs -->
+
+<%- include("../partials/header.ejs") %>
+
+<section class="w-full h-full pt-3 pb-16">
+  <div
+    class="border-4 mx-auto border-dashed border-blue-500 rounded-3xl p-8 relative text-center w-[28%]"
+  >
+    <!-- Display selected file content -->
+    <div
+      id="show"
+      class="w-full max-w-sm h-52 max-h-52 border border-gray-200 rounded-lg overflow-hidden bg-gray-100 shadow-md hidden"
+      style="
+        display: block;
+        width: 280px;
+        height: 300px;
+        background-color: rgb(255, 255, 255);
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+      "
+    >
+      <img
+        src="/icons/file-share.svg"
+        alt="receive-mail.svg"
+        style="
+          width: 280px;
+          height: 300px;
+          margin: auto;
+          border-radius: 20px;
+          background-size: cover;
+          background-color: rgb(255, 255, 255);
+        "
+      />
+    </div>
+
+    <!-- File info section -->
+    <ul
+      id="fileInfo"
+      class="mt-6 flex flex-col items-start gap-2 text-gray-500 text-sm"
+    >
+      <li class="text-green-300">owner : nikhil wankhade</li>
+
+      <li>name : receive-mail.svg</li>
+      <li>size : 0.018584 mb</li>
+      <li>file type : svg</li>
+    </ul>
+
+    <div class="flex justify-between" id="btn">
+      <!-- fileShareBtn button -->
+      <button
+        id="fileShareBtn"
+        class="bg-purple-500 text-white py-2 px-4 mt-6 rounded-md shadow-md hidden hover:bg-orange-500 transition-all"
+        style="display: block"
+      >
+        <div class="flex gap-2 items-center">
+          <span>share</span>
+          <img
+            src="/icons/file-share.svg"
+            alt="next"
+            class="w-4 h-4 bg-slate-50 rounded-3xl"
+          />
+        </div>
+      </button>
+
+      <!-- fileDownloadBtn button -->
+      <button
+        id="fileDownloadBtn"
+        class="bg-blue-700 text-white py-2 px-4 mt-6 rounded-md shadow-md hidden hover:bg-sky-500 transition-all"
+        style="display: block"
+      >
+        <div class="flex gap-2 items-center">
+          <span>download</span>
+          <img
+            src="/icons/file-download.svg"
+            alt="next"
+            class="w-4 h-4 bg-slate-50 rounded-md"
+          />
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<%- include("../partials/footer.ejs") %>

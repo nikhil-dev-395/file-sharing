@@ -15,8 +15,10 @@ const myProgressBar = document.getElementById("myProgressBar");
 const progressValue = document.getElementById("value");
 const nextBtn = document.getElementById("nextBtn");
 const cancelBtn = document.getElementById("cancelBtn");
+const select_file_box = document.getElementById("select-file-box");
 
 files_sharing.addEventListener("change", (e) => {
+  select_file_box.style.marginTop = "20px";
   nextBtn.style.display = "block";
   cancelBtn.style.display = "block";
   show.style.display = "block";

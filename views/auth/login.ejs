@@ -3,33 +3,67 @@
 <%- include("../partials/header.ejs") %>
 
 <section class="w-full h-[calc(100vh-40px)] mx-auto">
-  <div class="py-10">
-    <h2 class="text-xl text-blue-500 px-40">welcome back </h2>
-    <h3 class="text-xl text-red-500 px-40">Login</h3>
+  <div class="py-10 ">
+    <h2 class="text-xl text-blue-500 px-40">welcome back</h2>
+    <h3 class="text-xl text-yellow-500 px-40">Login</h3>
     <form
-      class="w-1/2 bg-blue-200 py-10 rounded-2xl text-xl flex flex-col gap-y-6 mx-auto"
+      class="w-[39%] border-4 border-dashed border-blue-500 py-10 rounded-2xl text-md flex flex-col gap-y-6 mx-auto"
     >
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="enter email"
-        class="rounded-md text-sm text-black py-4 w-[80%] px-6 outline-none mx-auto"
-      />
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="enter password"
-        class="rounded-md mx-auto text-sm text-black py-4 w-[80%] px-6 outline-none"
-      />
+      <!--  Email -->
+      <div
+        class="flex items-center border mx-auto rounded-lg bg-white text-gray-700 w-[80%] shadow-sm focus-within:ring-2 focus-within:ring-blue-500"
+      >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="enter email"
+          class="flex-1 py-2 px-4 rounded-l-lg focus:outline-none"
+          required
+        />
+        <img
+          src="/icons/email.svg"
+          alt="User Icon"
+          class="w-5 h-5 mx-3 text-gray-500"
+        />
+      </div>
+
+
+<!-- password -->
+      <div
+        class="flex items-center border rounded-lg bg-white text-gray-700 w-[80%] mx-auto shadow-sm focus-within:ring-2 focus-within:ring-blue-500"
+      >
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="enter password"
+          class="flex-1 py-2 px-4 rounded-l-lg focus:outline-none"
+          required
+        />
+        <img
+          src="/icons/password.svg"
+          alt="User Icon"
+          class="w-5 h-5 mx-3 text-gray-500"
+        />
+      </div>
 
       <button
         type="submit"
-        class="w-32 bg-slate-50 rounded-lg text-md text-black px-2 ml-16 py-3 hover:bg-blue-500"
+        id="loginBtn"
+        class="bg-blue-500 text-white py-2 px-4 mt-6 w-24 rounded-md shadow-md hidden hover:bg-orange-500 transition-all ml-12 duration-500 ease-in-out"
+        style="display: block"
       >
-        login
+        <div class="flex gap-2 items-center">
+          <span>login</span>
+          <img
+            src="/icons/login.svg"
+            alt="next"
+            class="w-4 h-4 bg-slate-50 rounded-3xl"
+          />
+        </div>
       </button>
+      <p class="text-sm mx-auto">dont have an  account <a href="/register" class="text-blue-500 underline mx-2">register</a></p>
     </form>
   </div>
 </section>

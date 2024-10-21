@@ -1,9 +1,13 @@
 /* public/scripts/main.js */
+console.log("this is main.js");
 const deleteBtn = document.getElementById("deleteBtn");
 const shareBtn = document.getElementById("shareBtn");
 const updateBtn = document.getElementById("updateBtn");
+const downloadBtn = document.getElementById("downloadBtn");
 
-console.log("this is main.js");
+const login = () => {
+  location.href = "/login";
+};
 
 // Check if deleteBtn exists before adding event listener
 if (deleteBtn) {
@@ -37,5 +41,11 @@ if (updateBtn) {
   updateBtn.addEventListener("click", () => {
     console.log("updateBtn clicked");
     // Add your update logic here
+  });
+}
+
+if (downloadBtn) {
+  downloadBtn.addEventListener("click", () => {
+    alert("do you want to download this");
   });
 }
