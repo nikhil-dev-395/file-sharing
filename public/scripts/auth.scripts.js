@@ -22,6 +22,7 @@ const logout = () => {
   localStorage.clear();
 };
 
+
 /* login form */
 
 loginForm.addEventListener("submit", (e) => {

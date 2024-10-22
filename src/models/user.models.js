@@ -1,17 +1,17 @@
-// user.models.js
-
 const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
   {
-    username: { type: string, required: true },
-    email: { type: string, required: true },
-    password: { type: string, required: true },
-    allFileLinks: [{ type: mongoose.Schema.Types.ObjectId, required: false }],
+    username: { type: String, required: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    allFileLinks: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "File", required: false },
+    ],
   },
   { timestamps: true }
 );
 
-const Files = mongoose.model("File", userSchema);
+const User = mongoose.model("User", userSchema);
 
-module.exports = Files;
+module.exports = User;

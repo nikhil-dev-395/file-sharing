@@ -4,13 +4,13 @@ const mongoose = require("mongoose");
 
 const fileSchema = new mongoose.Schema(
   {
-    // file: { type: string, required: true },
-    filename: { type: string, required: true },
-    sender: { type: string, required: true },
-    receiver: { type: string, required: false },
-    download_url: { type: string, required: false },
-    fileSize: { type: string, required: false },
-    uuid: { type: string, required: false },
+    // file: { type: String, required: true },
+    filename: { type: String, required: true },
+    sender: { type: String, required: true },
+    receiver: { type: String, required: false },
+    download_url: { type: String, required: false },
+    fileSize: { type: String, required: false },
+    uuid: { type: String, required: false },
   },
   { timestamps: true }
 );
