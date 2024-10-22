@@ -3,11 +3,12 @@
 <%- include("../partials/header.ejs") %>
 
 <section class="w-full h-[calc(100vh-40px)] mx-auto">
-  <div class="py-10 ">
+  <div class="py-10">
     <h2 class="text-xl text-blue-500 px-40">welcome back</h2>
     <h3 class="text-xl text-yellow-500 px-40">Login</h3>
     <form
       class="w-[39%] border-4 border-dashed border-blue-500 py-10 rounded-2xl text-md flex flex-col gap-y-6 mx-auto"
+      id="loginForm"
     >
       <!--  Email -->
       <div
@@ -28,8 +29,7 @@
         />
       </div>
 
-
-<!-- password -->
+      <!-- password -->
       <div
         class="flex items-center border rounded-lg bg-white text-gray-700 w-[80%] mx-auto shadow-sm focus-within:ring-2 focus-within:ring-blue-500"
       >
@@ -43,8 +43,10 @@
         />
         <img
           src="/icons/password.svg"
+          onclick="showPassword()"
           alt="User Icon"
-          class="w-5 h-5 mx-3 text-gray-500"
+          class="w-5 h-5 mx-3 text-gray-500 cursor-pointer"
+          id="showpass"
         />
       </div>
 
@@ -63,7 +65,10 @@
           />
         </div>
       </button>
-      <p class="text-sm mx-auto">dont have an  account <a href="/register" class="text-blue-500 underline mx-2">register</a></p>
+      <p class="text-sm mx-auto">
+        dont have an account
+        <a href="/register" class="text-blue-500 underline mx-2">register</a>
+      </p>
     </form>
   </div>
 </section>

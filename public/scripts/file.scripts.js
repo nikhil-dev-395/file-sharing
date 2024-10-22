@@ -106,12 +106,6 @@ files_sharing.addEventListener("change", (e) => {
       img.style.backgroundSize = "cover";
 
       show.append(img);
-
-      /* for .svg only*/
-
-      if (file.type === "image/svg+xml") {
-        img.style.backgroundColor = color.docxBgColor;
-      }
     }
 
     /*.docx handling from here ..*/

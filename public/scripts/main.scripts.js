@@ -5,9 +5,7 @@ const shareBtn = document.getElementById("shareBtn");
 const updateBtn = document.getElementById("updateBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 
-const login = () => {
-  location.href = "/login";
-};
+
 
 // Check if deleteBtn exists before adding event listener
 if (deleteBtn) {
