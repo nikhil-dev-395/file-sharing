@@ -17,6 +17,8 @@ yarn dev
 ```
 PORT = your port | 3000
 MONGO_URI = your mongodb url
+JWT_SECRET = your jwt secret key
+
 ```
 
 # icon source

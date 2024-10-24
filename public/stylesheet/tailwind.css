@@ -614,11 +614,6 @@ video {
   margin-right: auto;
 }
 
-.mx-10 {
-  margin-left: 2.5rem;
-  margin-right: 2.5rem;
-}
-
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -655,6 +650,10 @@ video {
   margin-right: 0.5rem;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -669,18 +668,6 @@ video {
 
 .mt-6 {
   margin-top: 1.5rem;
-}
-
-.mr-20 {
-  margin-right: 5rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
 }
 
 .block {
@@ -751,6 +738,10 @@ video {
   width: 6rem;
 }
 
+.w-28 {
+  width: 7rem;
+}
+
 .w-3\/4 {
   width: 75%;
 }
@@ -803,32 +794,12 @@ video {
   width: 80%;
 }
 
-.w-full {
-  width: 100%;
-}
-
 .w-\[90\%\] {
   width: 90%;
 }
 
-.w-\[88\%\] {
-  width: 88%;
-}
-
-.w-\[83\%\] {
-  width: 83%;
-}
-
-.w-\[81\%\] {
-  width: 81%;
-}
-
-.w-28 {
-  width: 7rem;
-}
-
-.w-\[100px\] {
-  width: 100px;
+.w-full {
+  width: 100%;
 }
 
 .max-w-lg {
@@ -1104,6 +1075,11 @@ video {
   padding: 2rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -1164,16 +1140,6 @@ video {
   padding-bottom: 0.75rem;
 }
 
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
-
-.px-1 {
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-}
-
 .pb-16 {
   padding-bottom: 4rem;
 }
@@ -1198,10 +1164,6 @@ video {
   padding-top: 0.75rem;
 }
 
-.pl-10 {
-  padding-left: 2.5rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1214,16 +1176,12 @@ video {
   font-family: IBM Plex Mono, monospace;
 }
 
-.font-sans {
-  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
 .font-mono {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-.font-serif {
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+.font-sans {
+  font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .text-3xl {
@@ -1253,10 +1211,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-\[13px\] {
-  font-size: 13px;
 }
 
 .font-bold {
@@ -1491,11 +1445,6 @@ video {
   color: rgb(241 245 249 / var(--tw-text-opacity));
 }
 
-.hover\:text-yellow-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity));
-}
-
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
@@ -1510,37 +1459,6 @@ video {
 .focus\:ring-blue-500:focus {
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(59 130 246 / var(--tw-ring-opacity));
-}
-
-.group:hover .group-hover\:bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-
-.group:hover .group-hover\:text-yellow-500 {
-  --tw-text-opacity: 1;
-  color: rgb(234 179 8 / var(--tw-text-opacity));
-}
-
-@media (min-width: 640px) {
-  .sm\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .md\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
-}
-
-@media (min-width: 1280px) {
-  .xl\:text-xs {
-    font-size: 0.75rem;
-    line-height: 1rem;
-  }
 }
 
 
