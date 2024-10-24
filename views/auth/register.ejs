@@ -6,6 +6,8 @@
   <div class="py-10">
     <h3 class="text-xl text-yellow-500 px-40">register</h3>
     <form
+     action="/api/v1/user/register"
+     method="post"
       class="w-[39%] border-4 border-dashed border-blue-500 py-10 rounded-2xl text-md flex flex-col gap-y-6 mx-auto"
       id="registerForm"
     >
@@ -69,7 +71,7 @@
       </div>
 
       <button
-        type="button"
+        type="submit"
         id="registerBtn"
         class="bg-blue-500 text-white py-2 px-4 mt-6 w-24 rounded-md shadow-md hidden hover:bg-orange-500 transition-all ml-12 duration-500 ease-in-out"
         style="display: block"

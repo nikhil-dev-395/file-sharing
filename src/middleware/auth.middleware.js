@@ -1,14 +1,13 @@
 // auth.middleware.js
 const jwt = require("jsonwebtoken");
 const authUser = (req, res, next) => {
-  let token = req.headers["authorization"];
-
+ const token = req.cookies.token;
   // Check if token exists
   if (!token) {
     return res.status(401).json({ message: "Token is required" });
   }
-  // Remove "Bearer " prefix if present
-  token = token.replace("Bearer ", "");
+  // // Remove "Bearer " prefix if present
+  // token = token.replace("Bearer ", "");
 
   try {
     // Verify the token
@@ -16,8 +15,8 @@ const authUser = (req, res, next) => {
     req.user = decoded;
     next();
   } catch (error) {
-    console.log(error);
-    return res.status(400).json({ message: "invalid token" });
+   console.log("Error verifying token:", error);
+   return res.status(401).json({ message: "Invalid token" }); 
   }
 };
 

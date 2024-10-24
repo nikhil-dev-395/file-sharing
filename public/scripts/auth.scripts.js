@@ -1,12 +1,10 @@
 /*auth.scripts.js*/
+console.log("auth.scripts.js");
 
 const password = document.getElementById("password");
 const loginForm = document.getElementById("loginForm");
+const registerForm = document.getElementById("registerForm");
 
-/*loginButton button is used to change path to login page*/
-const loginButton = () => {
-  location.href = "/login";
-};
 /*showPassword function is used for hiding and showing password type & icons*/
 const showPassword = () => {
   if (password.type === "password") {
@@ -18,33 +16,14 @@ const showPassword = () => {
   }
 };
 
+/*logout function is used for loggging out from website */
 const logout = () => {
-  localStorage.clear();
-};
 
-
-/* login form */
-
-loginForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value.trim();
-
-  if (email === "" || password === "") {
-    alert("Please enter your credentials for login.");
-  } else {
-    Toastify({
-      text: "Login successful!",
-      className: "info",
-      style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
-        borderRadius: "12px",
-      },
-    }).showToast();
-
-    // remember to add here jwt token
-    const token = email + " " + password;
-    localStorage.setItem("authToken", token);
+  const cookies = document.cookie.split(";");
+  for (let index = 0; index < cookies.length; index++) {
+    document.cookie =
+      cookies[index] + "=; expires =+" + new Date(0).toUTCString();
   }
-});
+  /*after logout we are redirecting it to login page of wolf share*/
+  window.location.pathname = "/login";
+};

@@ -3,6 +3,7 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
 const port = process.env.port || 3000;
@@ -15,7 +16,9 @@ const { webRouter } = require("./src/routes/web.routes.js");
 // view ejs engine
 app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.use(cookieParser());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 // ROUTES

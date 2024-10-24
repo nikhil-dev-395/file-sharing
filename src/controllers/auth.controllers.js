@@ -13,15 +13,18 @@ const login = async (req, res) => {
       return res.status(300).json({ message: "user not exist" });
     }
     const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      return res.status(300).json({ message: "user not valid" });
+    }
     const token = jwt.sign(
       { email: user.email, userId: user._id },
       process.env.JWT_SECRET
     );
-    if (isMatch) {
-      return res
-        .status(201)
-        .json({ message: "user logged in successfully", token });
-    }
+
+    res.cookie("token", token, {
+      httpOnly: false,
+    });
+    res.redirect("/");
   } catch (error) {
     console.log("err at login user", error.message);
     res.status(500).json({ err: error.message });
@@ -47,7 +50,11 @@ const register = async (req, res) => {
       process.env.JWT_SECRET
     );
     console.log("token", token);
-    res.status(201).json({ message: "user created successfully", token });
+    // res.status(201).json({ message: "user created successfully", token });
+    res.cookie("token", token, {
+      httpOnly: false,
+    });
+    res.redirect("/");
   } catch (error) {
     console.log("err at register user", error.message);
     res.status(500).json({ err: error.message });

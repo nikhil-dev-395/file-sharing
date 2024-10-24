@@ -5,11 +5,8 @@ const shareBtn = document.getElementById("shareBtn");
 const updateBtn = document.getElementById("updateBtn");
 const downloadBtn = document.getElementById("downloadBtn");
 
-const registerForm = document.getElementById("registerForm");
-registerForm.addEventListener("submit", (e) => {
-  e.preventDefault();
-  console.log("hiii");
-});
+console.log("All cookies:", document.cookie); // Log all cookies to see what you have
+
 
 
 // Check if deleteBtn exists before adding event listener
