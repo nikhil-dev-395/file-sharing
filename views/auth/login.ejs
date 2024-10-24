@@ -4,8 +4,8 @@
 
 <section class="w-full h-[calc(100vh-40px)] mx-auto">
   <div class="py-10">
-    <h2 class="text-xl text-blue-500 px-40">welcome back</h2>
-    <h3 class="text-xl text-yellow-500 px-40">Login</h3>
+    <h2 class="text-xl text-blue-500 px-40 font-IBM">welcome back</h2>
+    <h3 class="text-xl text-yellow-500 px-40 font-IBM">Login</h3>
     <form
       action="/api/v1/user/login"
       method="post"
@@ -52,14 +52,16 @@
         />
       </div>
 
+<a href="/forgotPassword" class="text-sm underline font-IBM text-blue-600 w-[90%] px-1 py-2  text-end ">forgot password</a>
+
       <button
         type="submit"
         id="loginBtn"
-        class="bg-blue-500 text-white py-2 px-4 mt-6 w-24 rounded-md shadow-md hidden hover:bg-orange-500 transition-all ml-12 duration-500 ease-in-out"
+        class="bg-blue-500 text-white py-2 px-4 mt-1 w-24 rounded-md shadow-md hidden hover:bg-orange-500 transition-all ml-12 duration-500 ease-in-out"
         style="display: block"
       >
         <div class="flex gap-2 items-center">
-          <span>login</span>
+          <span class="font-IBM">login</span>
           <img
             src="/icons/login.svg"
             alt="next"
@@ -69,7 +71,7 @@
       </button>
       <p class="text-sm mx-auto">
         dont have an account
-        <a href="/register" class="text-blue-500 underline mx-2">register</a>
+        <a href="/register" class="text-blue-500 underline mx-2 font-IBM">register</a>
       </p>
     </form>
   </div>
