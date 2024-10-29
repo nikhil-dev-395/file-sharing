@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node server.js",
-    "dev": "concurrently \"nodemon server.js\" \"npx tailwindcss -i ./public/stylesheet/style.css -o ./public/stylesheet/tailwind.css --watch\"",
+    "dev": "concurrently \"nodemon api/index.js\" \"npx tailwindcss -i ./public/stylesheet/style.css -o ./public/stylesheet/tailwind.css --watch\"",
     "server": "nodemon server.js",
     "tailwind": "npx tailwindcss -i ./public/stylesheet/style.css -o ./public/stylesheet/tailwind.css --watch"
   },

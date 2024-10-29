@@ -9,13 +9,15 @@ const app = express();
 const port = process.env.port || 3000;
 const path = require("path");
 // FILES
-const connect = require("./src/db/connect.db.js");
-const { fileRouter } = require("./src/routes/files.routes.js");
-const { userRouter } = require("./src/routes/user.routes.js");
-const { webRouter } = require("./src/routes/web.routes.js");
+const connect = require("../src/db/connect.db.js");
+const { fileRouter } = require("../src/routes/files.routes.js");
+const { userRouter } = require("../src/routes/user.routes.js");
+const { webRouter } = require("../src/routes/web.routes.js");
 // view ejs engine
-app.use(express.static(path.join(__dirname, "public")));
+// app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "../views"));
+app.use(express.static(path.join(__dirname, "../public")));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,3 +42,6 @@ const startServer = async () => {
   }
 };
 startServer();
+
+
+module.exports = app;
