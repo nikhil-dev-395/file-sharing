@@ -6,15 +6,14 @@ const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
 const app = express();
-const port = process.env.port || 3000;
 const path = require("path");
 // FILES
 const connect = require("../src/db/connect.db.js");
 const { fileRouter } = require("../src/routes/files.routes.js");
 const { userRouter } = require("../src/routes/user.routes.js");
 const { webRouter } = require("../src/routes/web.routes.js");
+const { showRouter } = require("../src/routes/show.routes.js");
 // view ejs engine
-// app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
 app.use(express.static(path.join(__dirname, "../public")));
@@ -24,14 +23,15 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 // ROUTES
-/*following route helps to routing all ejs pages
-- web route */
+/*webRouter helps to routing all ejs pages - web route */
 app.use("/", webRouter);
 app.use("/api/v1/files", fileRouter);
+app.use("/api/v1/show", showRouter);
 app.use("/api/v1/user", userRouter);
 
 // node js server is running from here ...
-const startServer = async () => {
+const port = process.env.port || 3000;
+(async () => {
   try {
     await connect();
     app.listen(port, () => {
@@ -40,8 +40,6 @@ const startServer = async () => {
   } catch (error) {
     console.log("err occurred at running a server " + error);
   }
-};
-startServer();
-
+})();
 
 module.exports = app;

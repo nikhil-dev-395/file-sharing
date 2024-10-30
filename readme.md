@@ -11,7 +11,7 @@ To run both the Tailwind CSS and Node.js server simultaneously, use:
 ```bash
 yarn dev
 ```
-
+main file location is  `api/index.js`
 # .env file
 
 ```
