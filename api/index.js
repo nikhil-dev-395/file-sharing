@@ -13,6 +13,8 @@ const { fileRouter } = require("../src/routes/files.routes.js");
 const { userRouter } = require("../src/routes/user.routes.js");
 const { webRouter } = require("../src/routes/web.routes.js");
 const { showRouter } = require("../src/routes/show.routes.js");
+const { pageNotfoundRouter } = require("../src/routes/pageNotfound.routes.js");
+const { downloadRouter } = require("../src/routes/download.routes.js");
 // view ejs engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "../views"));
@@ -26,9 +28,10 @@ app.use(bodyParser.json());
 /*webRouter helps to routing all ejs pages - web route */
 app.use("/", webRouter);
 app.use("/api/v1/files", fileRouter);
-app.use("/api/v1/show", showRouter);
+app.use("/files", showRouter);
+app.use("/files/download", downloadRouter);
 app.use("/api/v1/user", userRouter);
-
+app.use("*", pageNotfoundRouter);
 // node js server is running from here ...
 const port = process.env.port || 3000;
 (async () => {

@@ -8,22 +8,6 @@ const { v4: uuid4 } = require("uuid");
 const File = require("../models/files.models.js");
 const { upload } = require("../middleware/upload.middleware.js");
 
-// const storage = multer.diskStorage({
-//   destination: (req, file, cb) => cb(null, "uploads/"),
-//   filename: (req, file, cb) => {
-//     const uniqueName = `${Date.now()}-${Math.round(
-//       Math.random() * 1e9
-//     )}${path.extname(file.originalname)}`;
-
-//     cb(null, uniqueName);
-//   },
-// });
-
-// let upload = multer({ storage, limits: { fileSize: 100000 * 100 } }).single(
-//   "file"
-// );
-
-
 router.post("/upload", (req, res) => {
   upload(req, res, async (err) => {
     // validate request , is file uploaded or not
@@ -57,6 +41,47 @@ router.post("/upload", (req, res) => {
 
   // store into db
   // response - > link
+});
+
+router.post("/send", async (req, res) => {
+  try {
+    const { uuid, emailTo, emailFrom } = req.body;
+    if (!uuid || !emailTo || !emailFrom) {
+      res.status(422).send("all fields are required!");
+    }
+    // get file from database
+
+    const file = await File.findOne({ uuid: uuid });
+    if (file.sender) {
+      res.status(422).send("email already sent");
+    }
+    file.sender = emailFrom;
+    file.receiver = emailTo;
+    await file.save();
+
+    // send email
+
+    const sendEmail = require("../services/emailService.services.js");
+    sendEmail({
+      from: emailFrom,
+      to: emailTo,
+      subject: "wolf share file sharing",
+      text: ` ${emailFrom} shared a file with you...`,
+      html: require("../services/emailTemplate.services.js")({
+        emailFrom: emailFrom,
+        downloadLink: `${process.env.APP_BASE_URL}/files/${file.uuid}`,
+        size: parseInt(file.size / 1000) + "kb",
+        expires: "24 hrs",
+      }),
+    });
+
+    return res.status(200).json({
+      success: true,
+      message: "email was successfully sent",
+    });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 module.exports = { fileRouter: router };

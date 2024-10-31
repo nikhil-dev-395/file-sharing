@@ -3,9 +3,19 @@
 <%- include("../partials/header.ejs") %>
 
 <section class="w-full h-full pt-3 pb-16">
+
+<% if(locals.error) { %>
+
+  <h1><%= locals.error %></h1>
+
+  <% } else { %>
+
 <div
   class=" rounded-xl py-8 px-6 max-w-lg mx-auto relative text-center bg-slate-100 "
 >
+
+
+
   <!-- Download logo -->
   <img
     src="/icons/download-sd.svg"
@@ -24,15 +34,15 @@
     class="mt-4 text-gray-600 text-sm space-y-1"
   >
     <li class="text-gray-800 font-semibold">Sender: Nikhil Wankhade</li>
-    <li class="text-gray-800 font-semibold">File: receive-mail.svg</li>
-    <li class="text-gray-800 font-semibold">Size: 0.018 MB</li>
+    <li class="text-gray-800 font-semibold">File: <%= filename %></li>
+    <li class="text-gray-800 font-semibold">Size: <%= parseInt(fileSize/1000) %> kb</li>
   </ul>
 
   <!-- Download button -->
   <div class="mt-6">
-    <button
+    <a href="<%= downloadLink %>"
       id="fileDownloadBtn"
-      class="bg-blue-600 text-white py-3 px-12 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-300 mx-auto flex items-center gap-2"
+      class="bg-blue-600 w-48 text-white py-3 px-12 rounded-md shadow-md hover:bg-blue-500 transition-colors duration-300 mx-auto flex items-center gap-2"
     >
       <span>Download</span>
       <img
@@ -40,10 +50,11 @@
         alt="download icon"
         class="w-5 h-5"
       />
-    </button>
+    </a>
   </div>
 </div>
 
+<% } %>
 </section>
 
 <%- include("../partials/footer.ejs") %>

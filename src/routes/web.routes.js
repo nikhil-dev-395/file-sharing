@@ -58,10 +58,6 @@ router.get("/download", (req, res) => {
   });
 });
 
-router.get("*", (req, res) => {
-  return res.render("404/not-found", {
-    title: "404",
-  });
-});
+
 
 module.exports = { webRouter: router };
