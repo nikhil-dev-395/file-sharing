@@ -5,7 +5,7 @@ const {
   twitter_profile_url,
 } = require("../constants/constants.js");
 
-// with this middleware we can send github & linedin links
+// with this middleware we can send github & linedin links ffff
 router.use((req, res, next) => {
   res.locals.github_profile_url = github_profile_url;
   res.locals.linkedIn_profile_url = linkedIn_profile_url;
@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
 
   return res.render("index", {
     title: "wolf share",
-
   });
 });
 
@@ -57,7 +56,5 @@ router.get("/download", (req, res) => {
     title: "download",
   });
 });
-
-
 
 module.exports = { webRouter: router };
