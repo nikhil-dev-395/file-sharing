@@ -38,3 +38,7 @@ font i used in wolf share is `sans` from tailwind default and [IBM Plex Mono](ht
 
 # email services
 https://app.brevo.com/ - we used as SMTP  server , you can use any services based on your preference ,if you ever wanted to use this app
+
+
+whats happening here .. ?
+-> the api/index.js is a main file , in this project we are going to share any file to any person using email services , for this we need to first upload the file to the cloud then it send to the receiver (a person who will receive this file) , for this we need to specify the sender and receiver email 

@@ -5,9 +5,12 @@ let currentLocation = window.location.pathname;
 const home = document.getElementById("home");
 const account = document.getElementById("account");
 const logo = document.getElementById("logo");
-
+const pricing = document.getElementById("pricing");
 if (currentLocation == "/account") {
   account.style.backgroundColor = "yellow";
+}
+if (currentLocation == "/pricing") {
+  pricing.style.backgroundColor = "yellow";
 }
 if (currentLocation == "/") {
   home.style.backgroundColor = "yellow";
