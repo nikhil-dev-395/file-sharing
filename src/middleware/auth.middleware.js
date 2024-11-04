@@ -16,7 +16,7 @@ const authUser = (req, res, next) => {
     next();
   } catch (error) {
    console.log("Error verifying token:", error);
-   return res.status(401).json({ message: "Invalid token" }); 
+   return res.status(401).json({ message: "Invalid token" });
   }
 };
 

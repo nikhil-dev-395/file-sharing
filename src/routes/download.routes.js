@@ -13,6 +13,9 @@ router.get("/:uuid", async (req, res) => {
     }
 
     const filePath = `${__dirname}/../../${file.path}`;
+    // increment the download count
+    file.downloadCount = (file.downloadCount || 0) + 1;
+    await file.save();
     res.download(filePath);
   } catch (error) {
     console.log(error);
