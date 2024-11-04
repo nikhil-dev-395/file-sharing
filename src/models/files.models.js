@@ -1,4 +1,4 @@
-/* src/models/files.models.js*
+/* src/models/files.models.js* */
 
 const mongoose = require("mongoose");
 
