@@ -25,20 +25,20 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
 // ROUTES
-/*webRouter helps to routing all ejs pages - web route */
+/* webRouter helps to routing all ejs pages - web route */
 app.use("/", webRouter);
 app.use("/api/v1/files", fileRouter);
 app.use("/files", showRouter);
 app.use("/files/download", downloadRouter);
 app.use("/api/v1/user", userRouter);
 app.use("*", pageNotfoundRouter);
-// node js server is running from here ...
+
 const port = process.env.port || 3000;
 (async () => {
   try {
     await connect();
     app.listen(port, () => {
-      console.log("server is running on port http://localhost:" + port);
+      console.log("server is running on  http://localhost:" + port);
     });
   } catch (error) {
     console.log("err occurred at running a server " + error);
